@@ -6,17 +6,33 @@
 ## 🚀 Quick Start
 
 ### 1. Install Dependencies
+
+**Windows:**
 ```bash
 ./install-audiobook.bat
 ```
 
+**Linux/Ubuntu:**
+```bash
+./install-audiobook.sh
+```
+
 ### 2. Launch the Application
+
+**Windows:**
 ```bash
 ./launch_audiobook.bat
 ```
 
+**Linux/Ubuntu:**
+```bash
+./launch_audiobook.sh
+```
+
 ### 3. CUDA Issue Fix (If Needed)
 If you encounter CUDA assertion errors during generation, install the patched version:
+
+**Windows:**
 ```bash
 # Activate your virtual environment first
 venv\Scripts\activate.bat
@@ -25,7 +41,30 @@ venv\Scripts\activate.bat
 pip install --force-reinstall --no-cache-dir "chatterbox-tts @ git+https://github.com/fakerybakery/better-chatterbox@fix-cuda-issue"
 ```
 
+**Linux/Ubuntu:**
+```bash
+# Activate your virtual environment first
+source venv/bin/activate
+
+# Install the CUDA-fixed version
+pip install --force-reinstall --no-cache-dir "chatterbox-tts @ git+https://github.com/fakerybakery/better-chatterbox@fix-cuda-issue"
+```
+
 The web interface will open automatically in your browser at `http://localhost:7860`
+
+### 🚀 **Alternative Launch Options**
+
+**Windows:**
+- `./launch_audiobook.bat` - Standard launch with default settings
+- `./launch_local.bat` - Local-only mode (127.0.0.1 access only)
+- `./launch_network.bat` - Network mode (accessible from local network)
+- `./launch_huggingface.bat` - Public sharing mode (⚠️ creates public URL)
+
+**Linux/Ubuntu:**
+- `./launch_audiobook.sh` - Standard launch with default settings
+- `./launch_local.sh` - Local-only mode (127.0.0.1 access only)
+- `./launch_network.sh` - Network mode (accessible from local network)
+- `./launch_huggingface.sh` - Public sharing mode (⚠️ creates public URL)
 
 ---
 
@@ -306,6 +345,35 @@ Enhanced the core text-to-speech engine for better reliability:
 - **8GB+ RAM** (16GB recommended for large projects)
 - **Modern web browser** for the interface
 
+### 🐧 **Linux/Ubuntu Setup**
+Before running the installation script, ensure you have the required dependencies:
+
+```bash
+# Ubuntu/Debian
+sudo apt update
+sudo apt install python3 python3-pip python3-venv git
+
+# CentOS/RHEL/Fedora
+sudo yum install python3 python3-pip git
+# or for newer versions:
+sudo dnf install python3 python3-pip git
+
+# Arch Linux
+sudo pacman -S python python-pip git
+```
+
+For CUDA support on Linux, also install:
+```bash
+# Ubuntu/Debian - install NVIDIA drivers and CUDA toolkit
+sudo apt install nvidia-driver-470 nvidia-cuda-toolkit
+# (adjust driver version as needed for your GPU)
+```
+
+### 🪟 **Windows Setup**
+- Install Python 3.10+ from [python.org](https://python.org)
+- Install Git from [git-scm.com](https://git-scm.com)
+- NVIDIA drivers with CUDA support (for GPU acceleration)
+
 ### 🔧 **CUDA Support**
 - CUDA compatibility issues have been resolved with updated dependencies
 - GPU acceleration is now stable for extended generation sessions
@@ -365,4 +433,8 @@ This project is licensed under the terms specified in `LICENSE`.
 
 ---
 
-**🎉 Ready to create amazing audiobooks with professional volume levels and enhanced audio quality? Run `./launch_audiobook.bat` and start generating!** 
+**🎉 Ready to create amazing audiobooks with professional volume levels and enhanced audio quality?** 
+
+**Windows:** Run `./launch_audiobook.bat` and start generating!
+
+**Linux/Ubuntu:** Run `./launch_audiobook.sh` and start generating!
